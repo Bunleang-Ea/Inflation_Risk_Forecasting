@@ -130,32 +130,11 @@ st.divider()
 
 # CPI & Inflation Trend Quick Chart
 st.subheader("📈 Long-Term Trend Overview (2005 – 2025)")
-col_chart, col_shocks = st.columns([3, 2])
 
-with col_chart:
-    st.markdown("**CPI All Items & 12-Month Moving Average**")
-    chart_df = df.set_index("Date")[["CPI_all_item", "CPI_12_Month_Moving_Avg"]]
-    chart_df.columns = ["Headline CPI", "12-Month Moving Average"]
-    st.line_chart(chart_df, height=320)
-
-with col_shocks:
-    st.markdown("**Major Macroeconomic Regimes in Dataset**")
-    st.info(
-        "🔴 **2008 Global Commodity Shock**: Peak YoY Inflation reached **+35.57%** "
-        "(May 2008) driven by soaring food, crude oil, and fertilizer import prices."
-    )
-    st.info(
-        "🔵 **2009 Deflationary Trough**: Inflation dropped to **-5.68%** "
-        "(May 2009) amid post-global financial crisis demand contraction."
-    )
-    st.info(
-        "🟠 **2022 Post-Pandemic Energy Pressure**: Inflation reached **+7.85%** "
-        "(June 2022) following supply chain bottlenecks and geopolitical tensions."
-    )
-    st.info(
-        "🟢 **2024–2025 Normalization**: Rate stabilized around **+1.19%** "
-        "(Dec 2025), returning to central bank price stability target."
-    )
+st.markdown("**CPI All Items & 12-Month Moving Average**")
+chart_df = df.set_index("Date")[["CPI_all_item", "CPI_12_Month_Moving_Avg"]]
+chart_df.columns = ["Headline CPI", "12-Month Moving Average"]
+st.line_chart(chart_df, height=320)
 
 st.divider()
 

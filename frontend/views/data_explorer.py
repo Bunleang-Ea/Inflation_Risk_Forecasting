@@ -21,24 +21,11 @@ df = df.sort_values("Date").reset_index(drop=True)
 min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
 
-f1, f2, f3 = st.columns([2, 2, 2])
+f1, f2 = st.columns([2, 2])
 with f1:
     start_date = st.date_input("Start Date", min_date, min_value=min_date, max_value=max_date)
 with f2:
     end_date = st.date_input("End Date", max_date, min_value=min_date, max_value=max_date)
-with f3:
-    preset = st.selectbox(
-        "Quick Era Presets",
-        ["All (2005–2025)", "2008 Commodity Crisis (2007–2009)", "Stability Era (2012–2019)", "Pandemic & Recent (2020–2025)"],
-    )
-
-# Apply preset if changed
-if preset == "2008 Commodity Crisis (2007–2009)":
-    start_date, end_date = pd.to_datetime("2007-01-01").date(), pd.to_datetime("2009-12-31").date()
-elif preset == "Stability Era (2012–2019)":
-    start_date, end_date = pd.to_datetime("2012-01-01").date(), pd.to_datetime("2019-12-31").date()
-elif preset == "Pandemic & Recent (2020–2025)":
-    start_date, end_date = pd.to_datetime("2020-01-01").date(), pd.to_datetime("2025-12-31").date()
 
 # Filter dataframe
 mask = (df["Date"].dt.date >= start_date) & (df["Date"].dt.date <= end_date)

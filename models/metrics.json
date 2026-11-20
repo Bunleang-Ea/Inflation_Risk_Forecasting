@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-11-20T11:37:45",
+  "trained_at": "2026-11-20T20:26:46",
   "task_type": "regression",
   "target": "YoY_Change_CPI_all_item",
   "primary_metric": "neg_root_mean_squared_error",
@@ -60,8 +60,8 @@
     "yoy_acceleration_spread": 1.9599,
     "YoY_12_Month_Avg": 1.6728,
     "cpi_momentum_spread": 0.155,
-    "MoM_Change_CPI_all_item": 0.0799,
-    "annualized_mom": 0.0799
+    "annualized_mom": 0.0799,
+    "MoM_Change_CPI_all_item": 0.0799
   },
   "figures": [
     "model_comparison.png",
