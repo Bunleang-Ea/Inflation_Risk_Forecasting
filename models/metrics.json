@@ -1,0 +1,71 @@
+{
+  "trained_at": "2026-11-20T11:37:45",
+  "task_type": "regression",
+  "target": "YoY_Change_CPI_all_item",
+  "primary_metric": "neg_root_mean_squared_error",
+  "best_model": "Linear Regression",
+  "best_params": {},
+  "tuned_cv_score": null,
+  "n_train": 201,
+  "n_test": 51,
+  "cv_results": [
+    {
+      "model": "Linear Regression",
+      "cv_neg_mean_absolute_error_mean": -0.4609,
+      "cv_neg_mean_absolute_error_std": 0.0255,
+      "cv_neg_root_mean_squared_error_mean": -0.6897,
+      "cv_neg_root_mean_squared_error_std": 0.0824,
+      "cv_r2_mean": 0.9748,
+      "cv_r2_std": 0.0173
+    },
+    {
+      "model": "Ridge",
+      "cv_neg_mean_absolute_error_mean": -0.4709,
+      "cv_neg_mean_absolute_error_std": 0.0358,
+      "cv_neg_root_mean_squared_error_mean": -0.6984,
+      "cv_neg_root_mean_squared_error_std": 0.1064,
+      "cv_r2_mean": 0.9757,
+      "cv_r2_std": 0.0148
+    },
+    {
+      "model": "Gradient Boosting",
+      "cv_neg_mean_absolute_error_mean": -0.6129,
+      "cv_neg_mean_absolute_error_std": 0.0758,
+      "cv_neg_root_mean_squared_error_mean": -0.973,
+      "cv_neg_root_mean_squared_error_std": 0.1495,
+      "cv_r2_mean": 0.9403,
+      "cv_r2_std": 0.0531
+    },
+    {
+      "model": "Random Forest",
+      "cv_neg_mean_absolute_error_mean": -0.68,
+      "cv_neg_mean_absolute_error_std": 0.1427,
+      "cv_neg_root_mean_squared_error_mean": -1.1262,
+      "cv_neg_root_mean_squared_error_std": 0.3047,
+      "cv_r2_mean": 0.9305,
+      "cv_r2_std": 0.0565
+    }
+  ],
+  "test_metrics": {
+    "mae": 0.4375,
+    "rmse": 0.6489,
+    "r2": 0.9804
+  },
+  "confusion_matrix": null,
+  "feature_importance": {
+    "CPI_all_item": 13.5799,
+    "CPI_3_Month_Moving_Avg": 6.9702,
+    "CPI_12_Month_Moving_Avg": 6.8745,
+    "YoY_3_Month_Avg": 2.7416,
+    "yoy_acceleration_spread": 1.9599,
+    "YoY_12_Month_Avg": 1.6728,
+    "cpi_momentum_spread": 0.155,
+    "MoM_Change_CPI_all_item": 0.0799,
+    "annualized_mom": 0.0799
+  },
+  "figures": [
+    "model_comparison.png",
+    "feature_importance.png",
+    "predicted_vs_actual.png"
+  ]
+}
