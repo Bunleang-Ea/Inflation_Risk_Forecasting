@@ -1,12 +1,15 @@
 import streamlit as st
 import config
 
+# Show the project title and its main purpose.
 st.title("ℹ️ About the Project")
 st.markdown("Macroeconomic forecasting and risk intelligence system developed for DSE Web App Development for Data Science.")
 
+# Split the page between project information and team details.
 col1, col2 = st.columns([3, 2])
 
 with col1:
+    # Display the project's scope and objectives.
     st.subheader("🎯 Project Purpose & Scope")
     st.write(f"**{config.PROJECT_TITLE}**")
     st.write(config.PROJECT_DESCRIPTION)
@@ -20,11 +23,13 @@ with col1:
     )
 
 with col2:
+    # Read the class and team names from the shared configuration.
     st.subheader("👥 Project Team")
     st.write(f"Class: **{config.CLASS_NAME}**")
     for member in config.TEAM_MEMBERS:
         st.markdown(f"- {member}")
 
+# Describe the dataset columns used by the application.
 st.divider()
 
 st.subheader("📊 Dataset & Variable Dictionary")
@@ -45,6 +50,7 @@ st.markdown(
 """
 )
 
+# Explain how the frontend, API, data, and ML layers work together.
 st.divider()
 
 st.subheader("🏗️ System Architecture & Technology Stack")

@@ -3,28 +3,31 @@ import pandas as pd
 import api_client
 import config
 
+# Display the project identity and description.
 st.title(f"{config.PROJECT_ICON} {config.PROJECT_TITLE}")
 st.markdown(f"*{config.PROJECT_DESCRIPTION}*")
 
-# Fetch dataset for metrics
+# Load the dataset used for the dashboard indicators.
 df = api_client.get_raw_dataframe()
 
+# Stop when the data source is unavailable.
 if df.empty:
     st.error("No dataset found. Please ensure the CSV is placed in data/raw/ or frontend/data/.")
     st.stop()
 
-# Ensure Date is sorted
+# Sort records so the latest and previous observations are correct.
 df = df.sort_values("Date").reset_index(drop=True)
 latest = df.iloc[-1]
 prev = df.iloc[-2] if len(df) > 1 else latest
 
+# Show the latest macroeconomic values and their change from the previous month.
 st.divider()
 
-# Top KPI Metric Cards
 st.subheader("📌 Latest Macroeconomic Indicators (Dec 2025)")
 
 k1, k2, k3, k4, k5 = st.columns(5)
 
+# Read the values used by the KPI cards.
 cpi_val = latest["CPI_all_item"]
 cpi_prev = prev["CPI_all_item"]
 yoy_val = latest["YoY_Change_CPI_all_item"]
@@ -58,7 +61,7 @@ k4.metric(
     help="4. 12M Core Average: 12-Month rolling average of YoY inflation to filter out seasonal and short-term volatility.",
 )
 
-# Risk Regime Status (compact format to fit cleanly without wrapping)
+# Assign a risk category using the annual inflation thresholds.
 if yoy_val <= 3.0:
     regime_val = "🟢 Stable"
     regime_delta = "Low Risk (≤3%)"
@@ -84,7 +87,7 @@ k5.metric(
     help=regime_help,
 )
 
-# Keyword Definitions Section
+# Explain the economic meaning and formulas behind the indicators.
 with st.expander("📖 Indicator Definitions & Economic Methodology", expanded=True):
     st.markdown("Detailed breakdown of the macroeconomic metrics used throughout this forecasting platform:")
 
@@ -128,7 +131,7 @@ with st.expander("📖 Indicator Definitions & Economic Methodology", expanded=T
 
 st.divider()
 
-# CPI & Inflation Trend Quick Chart
+# Plot the long-term CPI trend and its 12-month moving average.
 st.subheader("📈 Long-Term Trend Overview (2005 – 2025)")
 
 st.markdown("**CPI All Items & 12-Month Moving Average**")
@@ -138,7 +141,7 @@ st.line_chart(chart_df, height=320)
 
 st.divider()
 
-# System Navigation Guide
+# Briefly explain what users can find on the main pages.
 st.subheader("🛠️ Web App Structure")
 g1, g2, g3 = st.columns(3)
 
