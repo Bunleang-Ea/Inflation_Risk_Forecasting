@@ -89,7 +89,7 @@ k5.metric(
 
 # Explain the economic meaning and formulas behind the indicators.
 with st.expander("📖 Indicator Definitions & Economic Methodology", expanded=True):
-    st.markdown("Detailed breakdown of the macroeconomic metrics used throughout this forecasting platform:")
+    st.markdown("A simple guide to the main indicators used in this dashboard:")
 
     d1, d2 = st.columns(2)
 
@@ -97,18 +97,21 @@ with st.expander("📖 Indicator Definitions & Economic Methodology", expanded=T
         st.markdown(
             """
             #### **1. CPI All Items (Consumer Price Index)**
-            * **What it is:** A comprehensive index measuring the weighted average price level of a standardized basket of consumer goods and services (food, housing, utilities, transportation, health, and education).
-            * **Economic Role:** Serves as the nominal price level benchmark. As CPI rises over time, purchasing power declines.
+            * **Simple meaning:** A number that shows how the average prices of everyday goods and services change over time.
+            * **Example:** It includes the cost of food, housing, transportation, health, and education.
+            * **Why it matters:** When CPI rises, people usually need more money to buy the same items.
 
             #### **2. YoY Inflation (Year-over-Year % Change)**
             * **Formula:** $\\text{YoY}_t = \\frac{\\text{CPI}_t - \\text{CPI}_{t-12}}{\\text{CPI}_{t-12}} \\times 100\\%$
-            * **What it is:** The official headline annual inflation rate comparing current price levels with the exact same month in the preceding year.
-            * **Economic Role:** Key target for central banks (standard stability target is $\\le 3.0\\%$).
+            * **Simple meaning:** How much prices changed compared with the same month one year ago.
+            * **Example:** A positive value means prices are higher than last year. A negative value means prices are lower.
+            * **Why it matters:** It shows the overall annual inflation trend.
 
             #### **3. MoM Price Change (Month-over-Month % Change)**
             * **Formula:** $\\text{MoM}_t = \\frac{\\text{CPI}_t - \\text{CPI}_{t-1}}{\\text{CPI}_{t-1}} \\times 100\\%$
-            * **What it is:** The monthly rate of price acceleration or deceleration.
-            * **Economic Role:** Detects immediate short-term supply chain shocks or seasonal price spikes before they fully register in annual YoY numbers.
+            * **Simple meaning:** How much prices changed from one month to the next.
+            * **Example:** A value of 1% means the price level increased by 1% during that month.
+            * **Why it matters:** It helps show short-term price increases or decreases quickly.
             """
         )
 
@@ -117,15 +120,16 @@ with st.expander("📖 Indicator Definitions & Economic Methodology", expanded=T
             """
             #### **4. 12M Core Average (12-Month Rolling Mean)**
             * **Formula:** $\\text{12M Avg}_t = \\frac{1}{12} \\sum_{i=0}^{11} \\text{YoY}_{t-i}$
-            * **What it is:** The smoothed moving average of annual inflation over the past 12 months.
-            * **Economic Role:** Filters out transient monthly noise, temporary harvest swings, and oil shocks to reveal the medium-term underlying inflation trend.
+            * **Simple meaning:** The average YoY inflation rate during the latest 12 months.
+            * **Example:** It combines twelve monthly inflation rates into one smoother value.
+            * **Why it matters:** It reduces temporary ups and downs and shows the longer-term direction.
 
             #### **5. Inflation Regime (Risk Threshold Classification)**
-            * **What it is:** A policy-driven macroeconomic risk category indicating price stability health:
-              * 🟢 **Low / Stable ($\le 3.0\%$)**: Price stability corridor supporting sustainable growth and stable purchasing power.
-              * 🟡 **Moderate Watchlist ($3.0\% - 5.0\%$)**: Emerging price pressures; requires close surveillance.
-              * 🟠 **Elevated Risk ($5.0\% - 8.0\%$)**: Notable cost-of-living impact; signals potential monetary tightening.
-              * 🔴 **Critical Shock ($> 8.0\%$)**: High inflation crisis (e.g. 2008 global commodity shock at 35.57%).
+            * **Simple meaning:** A category that describes the current level of inflation risk.
+            * 🟢 **Low / Stable ($\le 3.0\%$):** Inflation is within a generally stable range.
+            * 🟡 **Moderate Watchlist ($3.0\% - 5.0\%$):** Inflation is increasing and should be monitored.
+            * 🟠 **Elevated Risk ($5.0\% - 8.0\%$):** Inflation is putting strong pressure on household costs.
+            * 🔴 **Critical Shock ($> 8.0\%$):** Inflation is very high and may require urgent attention.
             """
         )
 
