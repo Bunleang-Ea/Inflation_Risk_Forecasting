@@ -16,9 +16,9 @@ with col1:
 
     st.markdown(
         """
-        - **Target Problem**: Inflation spikes cause rapid purchasing power erosion, supply chain uncertainty, and policy volatility.
-        - **Target Users**: Economic analysts, business planners, financial institutions, and policy researchers.
-        - **Core Value**: Early detection of price momentum acceleration through moving-average convergence/divergence and regression forecasting.
+        - **Target Problem**: Sudden increases in inflation make everyday goods more expensive, reduce purchasing power, and create uncertainty for businesses and policymakers.
+        - **Target Users**: Students, economic analysts, business planners, financial institutions, and policy researchers who want to understand inflation trends.
+        - **Core Value**: The app helps users explore inflation data and forecast future price changes by comparing CPI trends and moving averages.
         """
     )
 
