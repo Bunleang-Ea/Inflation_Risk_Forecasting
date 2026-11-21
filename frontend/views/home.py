@@ -55,7 +55,7 @@ k3.metric(
     help="3. MoM Price Change: Month-over-Month percentage change indicating immediate monthly pricing velocity.",
 )
 k4.metric(
-    "12M Core Average",
+    "12-Month Average Inflation",
     f"{ma12_val:.2f}%",
     delta=f"{ma12_val - prev['YoY_12_Month_Avg']:+.2f}% YoY",
     help="4. 12M Core Average: 12-Month rolling average of YoY inflation to filter out seasonal and short-term volatility.",
