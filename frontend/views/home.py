@@ -137,6 +137,7 @@ st.subheader("📈 Long-Term Trend Overview (2005 – 2025)")
 st.markdown("**CPI All Items & 12-Month Moving Average**")
 chart_df = df.set_index("Date")[["CPI_all_item", "CPI_12_Month_Moving_Avg"]]
 chart_df.columns = ["Headline CPI", "12-Month Moving Average"]
+st.caption("Chart labels — X-axis: Date | Y-axis: CPI Index")
 st.line_chart(chart_df, height=320)
 
 st.divider()

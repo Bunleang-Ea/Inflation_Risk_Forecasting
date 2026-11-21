@@ -50,10 +50,16 @@ st.subheader("Model comparison (cross-validation)")
 metric = report["primary_metric"]
 cv = pd.DataFrame(report["cv_results"])
 st.dataframe(cv, width="stretch", hide_index=True)
-st.bar_chart(cv.set_index("model")[f"cv_{metric}_mean"], horizontal=True)
+comparison_value = f"cv_{metric}_mean"
+comparison_chart_data = cv.set_index("model")[[comparison_value]]
+comparison_chart_data.columns = [metric.replace("_", " ").title()]
+st.caption("Chart labels — Y-axis: Model | X-axis: Cross-Validation Score")
+st.bar_chart(comparison_chart_data, horizontal=True, height=300)
 
 # --- Feature importance -----------------------------------------------------
 # Display the most important input features when available.
 if report.get("feature_importance"):
     st.subheader("Feature importance")
-    st.bar_chart(pd.Series(report["feature_importance"]).head(15), horizontal=True)
+    importance = pd.Series(report["feature_importance"]).head(15)
+    st.caption("Chart labels — Y-axis: Feature | X-axis: Importance Score")
+    st.bar_chart(importance, horizontal=True, height=400)

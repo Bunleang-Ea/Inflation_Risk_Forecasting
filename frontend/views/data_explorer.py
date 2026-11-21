@@ -71,6 +71,7 @@ with tab1:
     )
     chart_data = filtered_df.set_index("Date")[["CPI_all_item", "CPI_3_Month_Moving_Avg", "CPI_12_Month_Moving_Avg"]]
     chart_data.columns = ["CPI All Items", "3-Month Moving Avg", "12-Month Moving Avg"]
+    st.caption("Chart labels — X-axis: Date | Y-axis: CPI Index")
     st.line_chart(chart_data, height=400)
 
     # A positive spread means recent CPI is above the long-term trend.
@@ -88,10 +89,13 @@ with tab2:
 
     yoy_chart = filtered_df.set_index("Date")[["YoY_Change_CPI_all_item", "YoY_3_Month_Avg", "YoY_12_Month_Avg"]]
     yoy_chart.columns = ["YoY Inflation Rate (%)", "YoY 3-Month Average", "YoY 12-Month Average"]
+    st.caption("Chart labels — X-axis: Date | Y-axis: Inflation Rate (%)")
     st.line_chart(yoy_chart, height=350)
 
     st.markdown("##### **Monthly Price Changes (MoM %)**")
     mom_chart = filtered_df.set_index("Date")["MoM_Change_CPI_all_item"]
+    mom_chart.name = "Month-over-Month Change (%)"
+    st.caption("Chart labels — X-axis: Date | Y-axis: Month-over-Month Change (%)")
     st.bar_chart(mom_chart, height=220)
 
 # Tab 3: show the distribution and descriptive statistics of inflation.
@@ -107,6 +111,7 @@ with tab3:
             "Inflation Range (%)": [f"{hist_bins[i]:.1f} to {hist_bins[i+1]:.1f}" for i in range(len(hist_counts))],
             "Frequency (Months)": hist_counts
         })
+        st.caption("Chart labels — X-axis: Inflation Range (%) | Y-axis: Number of Months")
         st.bar_chart(hist_df.set_index("Inflation Range (%)"), height=300)
 
     with c_right:
