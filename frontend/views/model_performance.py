@@ -13,6 +13,7 @@ with st.expander("Retrain the model"):
     if st.button("Train model", type="primary"):
         with st.spinner("Training model..."):
             try:
+                # raise api_client.APIError("Demo error: the backend is unavailable")
                 # The backend handles cleaning, training, and saving the model.
                 api_client.train()
                 st.success("Model trained and saved.")
@@ -42,7 +43,14 @@ st.write("Best parameters:", report["best_params"] or "default")
 st.subheader("Performance on the test set")
 cols = st.columns(len(report["test_metrics"]))
 for col, (name, value) in zip(cols, report["test_metrics"].items()):
-    col.metric(name.upper(), value)
+    metric_labels = {
+    "mae": "MAE",
+    "rmse": "RMSE",
+    "r2": "R2",
+}
+
+for col, (name, value) in zip(cols, report["test_metrics"].items()):
+    col.metric(metric_labels.get(name, name.upper()), value)
 
 # --- Model comparison -------------------------------------------------------
 # Compare candidate models using cross-validation results.

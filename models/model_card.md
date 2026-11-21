@@ -1,6 +1,6 @@
 # Model Card
 
-- **Trained:** 2026-11-21T08:27:56
+- **Trained:** 2026-11-21T09:08:26
 - **Task:** regression – predict `YoY_Change_CPI_all_item`
 - **Model:** Linear Regression
 - **Best parameters:** {}

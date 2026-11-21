@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-11-21T08:27:56",
+  "trained_at": "2026-11-21T09:08:26",
   "task_type": "regression",
   "target": "YoY_Change_CPI_all_item",
   "primary_metric": "neg_root_mean_squared_error",
